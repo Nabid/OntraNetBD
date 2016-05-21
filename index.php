@@ -46,6 +46,12 @@
 
             $('#search').trigger('click');
         };
+
+        function beforeSearch(e){
+            if($(key).val() != ''){
+                $('#result').html('<div class="row text-center"><img src="./assets/images/hourglass.gif" /></div>');
+            }
+        };
     </script>
 
     <style rel="stylesheet" type="text/css" >
@@ -71,7 +77,7 @@
         <div class="input-group">
           <input id="key" type="text" class="form-control" placeholder="Search for Location or Tourist Spot...">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" id="search" value="Search">Search</button>
+            <button class="btn btn-default" type="button" id="search" value="Search" onclick="beforeSearch(this)">Search</button>
           </span>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->

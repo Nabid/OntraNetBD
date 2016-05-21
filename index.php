@@ -58,42 +58,59 @@
     body {
         overflow-x: hidden;
     }
-
     .list-group-item {
         cursor: pointer;    
     }
+    .list-group-item:hover {
+        background-color: #ddd;
+        color: #fff;
+    }
+    .header {
+
+    }
+    .container {
+        width: 80%;
+        
+    }
+    .contents {
+        /*margin: 60px 0 0 0;*/
+        overflow: hidden;
+    }    
     </style>
 </head>
 
 <body>
+    <div class="container">
+        <div class="navbar navbar-default">
+            <div class = "navbar-header">
+                <a class = "navbar-brand" href = "#">OnTraNetBD <span class="label label-primary">Travel Ontology of Bangladesh</span></a>
+            </div>            
+        </div>
+        <div class="contents">    
+            <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-group">
+                        <input id="key" type="text" class="form-control" placeholder="Search for Location or Tourist Spot ...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="search" value="Search" onclick="beforeSearch(this)">Search</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
 
-<div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-sm-6">
-    <h3>OnTraNetBD <span class="label label-default">Travel Ontology of Bangladesh</span></h3>
+            <!--<form method="post">
+                <div class="form-group"></div>
+                
+            </form>
+             <div class="panel panel-primary">...</div> -->
+            <div id="result" ></div>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="input-group">
-          <input id="key" type="text" class="form-control" placeholder="Search for Location or Tourist Spot...">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button" id="search" value="Search" onclick="beforeSearch(this)">Search</button>
-          </span>
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
-    </div><!-- /.row -->
-
-    <!--<form method="post">
-        <div class="form-group"></div>
-        
-    </form>
-     <div class="panel panel-primary">...</div> -->
-    <div id="result" ></div>
-
-</div>
-  </div>
-  <div class="col-md-3"></div>
-</div>
-
+            </div>
+            <div class="col-md-4">
+                <h4>Travel Attractions<h4>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

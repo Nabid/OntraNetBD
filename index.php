@@ -29,6 +29,23 @@
                 source: availableTags
             });
           });
+
+    </script>
+
+    <script type="text/javascript">
+        function triggerSearch(e){
+            var name = $(e).text();
+
+            if( name.indexOf('\(') >= 0 ) {
+                name = name.substr(0, name.indexOf('\('));
+            }
+
+            name = name.trim();
+
+            $('#key').val(name);
+
+            $('#search').trigger('click');
+        };
     </script>
 
     <style rel="stylesheet" type="text/css" >
@@ -60,8 +77,12 @@
       </div><!-- /.col-lg-6 -->
     </div><!-- /.row -->
 
-    <div id="result">
-    <!-- <div class="panel panel-primary">...</div> -->
+    <!--<form method="post">
+        <div class="form-group"></div>
+        
+    </form>
+     <div class="panel panel-primary">...</div> -->
+    <div id="result" ></div>
 
 </div>
   </div>

@@ -38,7 +38,7 @@ if( isset( $_POST["key"] ) ) {
 						if( $spots['count'] > 0 ) {
 							echo "<ul class='list-group'>";
 							foreach($spots['result'] as $sp) {
-								echo "<li class='list-group-item'>".$sp['spot'];
+								echo "<li class='list-group-item' onclick='triggerSearch(this)'>".$sp['spot'];
 								$spotTypes = getTypeOfIndividual( $sp['spot'] );
 								foreach ($spotTypes as $k => $value) {
 									//echo "!!".$value."!!";
@@ -59,8 +59,12 @@ if( isset( $_POST["key"] ) ) {
 						$loc = getLocation( $key );
 						if( checkVowel( $type[0] ) ) $art = 'An';
 						else $art = 'A'; 
-						echo '* ' . $art . ' ' . $type . '.<br>';
-						echo "Location: " . $loc . '<br>';
+
+						$strArea = '<div class="well"><span class="label label-success">';
+						$strArea = $strArea . $art . ' ' . $type . '</span>';
+						$strArea = $strArea . '<br><small>' . "Location: " . $loc . '</small>';	
+						echo $strArea . '</div>';
+
 						//echo "Activities: " . '<br>';
 						//echo "<br>";
 						$others = getSpotsOfType( $key, $type );
@@ -70,7 +74,7 @@ if( isset( $_POST["key"] ) ) {
 							echo "<ul class='list-group'>";
 							foreach ($others['result'] as $other) {
 								if( $other['otsp'] != $key )
-									echo "<li class='list-group-item'>".$other['otsp'].'</li>';
+									echo "<li class='list-group-item' onclick='triggerSearch(this)'>".$other['otsp'].'</li>';
 							}
 							echo "</ul>";
 						}
@@ -99,7 +103,7 @@ if( isset( $_POST["key"] ) ) {
 					print "</pre>";*/
 					echo '<ul class="list-group">';
 					foreach( $members as $mem ) {
-						echo '<li class="list-group-item">' . $mem["member"] . '</li>';
+						echo '<li class="list-group-item"  onclick="triggerSearch(this)">' . $mem["member"] . '</li>';
 					}
 					echo '</ul>';
 				}

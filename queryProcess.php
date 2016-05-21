@@ -15,26 +15,30 @@ if( isset( $_POST["key"] ) ) {
 					//echo '<br>As "' . $type . '": ';
 					if( $type == "Area" || $type == "District" ) {
 						// find District and Tourist Spots if type is Area
+						$strArea = '<div class="well"><span class="label label-success">';
 						if( $type == "Area" ) { // Area
 							$dist = getDistrict( $key );
-							echo '* An area in District '.$dist.' in Bangladesh.<br>';
+							$strArea = $strArea . 'An area in District '.$dist.' in Bangladesh.<br>';
 							$spots = getSpotsInArea( $key );
 						}
 						else { // District
-							echo '* A District.<br>';
+							$strArea = $strArea . 'A District';
 							$spots = getSpotsInDistrict( $key );
 						}
+						$strArea = $strArea . '</span></div>';
+						echo $strArea;
+
 						$cnt = $spots['count'];
 						if( $cnt < 2 ) { $aux = "is"; $entry = "spot"; }
 						else { $aux = "are"; $entry = "spots"; }
 						if( $cnt == 0 ) { $cnt = "no"; $end = "."; }
 						else $end = "-";
-						echo "There ".$aux." ".$cnt." tourist ".$entry." in ".$key.".<br>";
+						echo "<div class='alert alert-success' role='alert'>" . "There ".$aux." "."<span class='badge'>".$cnt."</span>"." tourist ".$entry." in ".$key.".</div>";
 						//print "<pre>";  print_r($spots);
 						if( $spots['count'] > 0 ) {
-							echo "<ul>";
+							echo "<ul class='list-group'>";
 							foreach($spots['result'] as $sp) {
-								echo "<li>".$sp['spot'];
+								echo "<li class='list-group-item'>".$sp['spot'];
 								$spotTypes = getTypeOfIndividual( $sp['spot'] );
 								foreach ($spotTypes as $k => $value) {
 									//echo "!!".$value."!!";
@@ -63,10 +67,10 @@ if( isset( $_POST["key"] ) ) {
 						//print "<pre>";  print_r($others);
 						if( $others['count'] > 0 ) {
 							echo "<br>Similar tourist spot(s) in Bangladesh:";
-							echo "<ul>";
+							echo "<ul class='list-group'>";
 							foreach ($others['result'] as $other) {
 								if( $other['otsp'] != $key )
-									echo "<li>".$other['otsp'].'</li>';
+									echo "<li class='list-group-item'>".$other['otsp'].'</li>';
 							}
 							echo "</ul>";
 						}
@@ -93,14 +97,14 @@ if( isset( $_POST["key"] ) ) {
 					/*print "<pre>";
 					print_r( $members );
 					print "</pre>";*/
-					echo '<ul>';
+					echo '<ul class="list-group">';
 					foreach( $members as $mem ) {
-						echo '<li>' . $mem["member"] . '</li>';
+						echo '<li class="list-group-item">' . $mem["member"] . '</li>';
 					}
 					echo '</ul>';
 				}
 				else {
-					echo 'There ' . $aux . ' no ' . $entry . ' for type "' . $key . '".';
+					echo '<div class="alert alert-info" role="alert">' . 'There ' . $aux . ' no ' . $entry . ' for type "' . $key . '".' . '</div>';
 				}
 			}
 		}
@@ -110,7 +114,7 @@ if( isset( $_POST["key"] ) ) {
 	}	
 }
 else {
-	echo "Nothing has been searched.";
+	echo '<div class="alert alert-warning" role="alert">' . 'Nothing has been searched' . '</div>';
 }
 
 function checkVowel( $ch ) {

@@ -17,7 +17,9 @@ $q = '
 		
 	SELECT DISTINCT ?label
 	WHERE { 
-	  ?sub rdfs:label ?label
+		?sub rdfs:label ?label .
+	  	?sub rdfs:subClassOf ?super .
+   		?super rdfs:label "Garden"
 	} 
 ';
 
@@ -38,6 +40,7 @@ if ($rows = $store->query( $q, 'rows' ) ) {
 	$r .='</table>'."\n";*/
 }
 else{
+	//echo count( $rows );
 	$r = '<em>No data returned</em>';
 }
 echo $r;

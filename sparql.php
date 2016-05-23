@@ -250,7 +250,7 @@ function getSpotsOfType( $key, $type ) {
 }
 
 function getAllLabels() {
-	initializeStore();
+	//initializeStore();
 	$query = $GLOBALS['prefix'] . '
 		SELECT DISTINCT ?label
 		WHERE { 
@@ -272,4 +272,27 @@ function getAllLabels() {
 		); 
 	}
 	return $res;
+}
+
+function getLeafConcepts( $label ) {
+	$query = $GLOBALS['prefix'] . '
+		SELECT DISTINCT ?label
+		WHERE { 
+		  	?sub rdfs:label ?label .
+		  	?sub rdfs:subClassOf ?super .
+	   		?super rdfs:label "'.$label.'"
+		}
+	';
+	if( $result = $GLOBALS['store']->query( $query, 'rows' ) ) {
+		$ret = array();
+		foreach( $result as $row ) {
+			$tmp = getLeafConcepts( $row['label'] );
+			if( $tmp == false ) $tmp = array( $row['label'] );
+			$ret = array_merge( $ret, $tmp );
+		}
+		return $ret;
+	}
+	else {
+		return false;
+	}	
 }

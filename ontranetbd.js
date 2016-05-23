@@ -13,7 +13,7 @@ $(document).ready(function() {
 				cache: false,
 				success: function(result){
 					result = '<h4>Search result for "' + key + '":</h4>' + result;
-					$("#result").html(result);
+					$("#result").html(result);					
 				}
 			});
 		}

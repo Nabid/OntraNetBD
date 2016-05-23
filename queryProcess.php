@@ -4,7 +4,8 @@ include_once( "sparql.php" );
 if( isset( $_POST["key"] ) ) {
 	$key = trim( $_POST["key"] );
 	if( $key == "" ) {
-		echo "Please enter something to search.";	
+		echo '<div class="alert alert-warning" role="alert">' . 'Please enter something to search.' . '</div>';
+		//echo "Please enter something to search.";	
 	}
 	else {
 		$result = isIndividualOrClass( $key );

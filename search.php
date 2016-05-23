@@ -12,6 +12,7 @@
 
     <script type="text/javascript" src="./assets/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <script>
         $(function() {
@@ -65,7 +66,7 @@
     }
     .list-group-item:hover {
         background-color: #ddd;
-        color: #fff;
+        /*color: #fff;*/
     }
     .header {
 
@@ -80,66 +81,86 @@
     } 
     .concepts {
         font-size: 15px;
-    }   
+    }  
+    #result {
+        padding-top: 15px;
+    }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="navbar navbar-default">
-            <div class = "navbar-header">
-                <a class = "navbar-brand" href = "#">OnTraNetBD <span class="label label-primary">Travel Ontology of Bangladesh</span></a>
-            </div>            
-        </div>
-        <div class="contents">    
-            <div class="col-sm-8">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="input-group">
-                        <input id="key" type="text" class="form-control" placeholder="Search for Location or Tourist Spot ...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" id="search" value="Search" onclick="beforeSearch(this)">Search</button>
-                        </span>
-                    </div><!-- /input-group -->
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand">OnTraNetBD</h3>
+                        <nav>
+                            <ul class="nav masthead-nav">
+                                <li><a href="home.php">Home</a></li>
+                                <li class="active"><a href="search.php">Search</a></li>
+                                <li><a href="service.php">Service</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!--<div class="navbar navbar-default">
+                    <div class = "navbar-header">
+                        <a class = "navbar-brand" href = "home.php">OnTraNetBD <span class="label label-primary">Travel Ontology of Bangladesh</span></a>
+                    </div>            
+                </div>-->
+                <div style='margin-top: 0px;'>
+                    <div class="inner cover col-sm-8">    
+                        <div class="">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <input id="key" type="text" class="form-control" placeholder="Search for Location or Tourist Spot ...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button" id="search" value="Search" onclick="beforeSearch(this)">Search</button>
+                                    </span>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
 
-            <!--<form method="post">
-                <div class="form-group"></div>
-                
-            </form>
-             <div class="panel panel-primary">...</div> -->
-            <div id="result" ></div>
+                            <!--<form method="post">
+                                <div class="form-group"></div>
+                                
+                            </form>
+                             <div class="panel panel-primary">...</div> -->
+                            <br>
+                            <div id="result" ></div>
 
-            </div>
-            <div class="col-md-4 concepts">
-	            <div class="panel panel-default">
-	                <div class="panel-heading">
-						<h3 class="panel-title">Travel Atrractions</h3>
-					</div>
-					<div class="panel-body"> 
-		                <?php
-		                    //include_once( "sparql.php" );
-		                    $leaves = getLeafConcepts( "Travel Attraction" );
-		                    //for($i = 0; $i < $allLabels['count']; $i++) {
-		                        //if( $i > 0 ) echo ',';
-		                        //echo $allLabels['result'][$i]['label'].'<br>';
-		                    //};
-		                    sort( $leaves );
-		                    //echo "<pre style='font-size: 15px;'>";
-		                    //echo "<p>";
-		                    foreach( $leaves as $l ) {
-		                        echo "<span style='cursor: pointer' class='label label-primary' onclick='triggerSearch(this)'>".$l."</span><br>";
-		                        //echo $l." ";
-		                    }
-		                    //echo "</p>";
-		                    //print_r($leaves);
-		                    //echo "</pre>";
-		                ?>
-	            	</div>
-	            </div>
+                        </div>                    
+                    </div>
+                    <div class="inner cover col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Travel Atrractions</h3>
+                            </div>
+                            <div class="panel-body"> 
+                                <?php
+                                    //include_once( "sparql.php" );
+                                    $leaves = getLeafConcepts( "Travel Attraction" );
+                                    //for($i = 0; $i < $allLabels['count']; $i++) {
+                                        //if( $i > 0 ) echo ',';
+                                        //echo $allLabels['result'][$i]['label'].'<br>';
+                                    //};
+                                    sort( $leaves );
+                                    //echo "<pre style='font-size: 15px;'>";
+                                    //echo "<p>";
+                                    foreach( $leaves as $l ) {
+                                        echo "<span style='cursor: pointer' class='label label-primary' onclick='triggerSearch(this)'>".$l."</span><br>";
+                                        //echo $l." ";
+                                    }
+                                    //echo "</p>";
+                                    //print_r($leaves);
+                                    //echo "</pre>";
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </div>  
 </body>
 </html>

@@ -12,7 +12,7 @@ $(document).ready(function() {
 				data: dataString,
 				cache: false,
 				success: function(result){
-					result = '<h4>Search result for "' + key + '":</h4>' + result;
+					result = '<h4 style="color: #fff;">Search result for "' + key + '":</h4>' + result;
 					$("#result").html(result);					
 				}
 			});

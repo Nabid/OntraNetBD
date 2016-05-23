@@ -8,7 +8,7 @@ if( isset( $_POST["key"] ) ) {
 		//echo "Please enter something to search.";	
 	}
 	else {
-		$result = isIndividualOrClass( $key );
+		$result = isIndividualOrClass( $key, true );
 		if( $result["verdict"] ) {			
 			if( $result["verdict"] == 1 ) { //if key is a named individual
 				$types = getTypeOfIndividual( $key );
@@ -71,7 +71,7 @@ if( isset( $_POST["key"] ) ) {
 						$others = getSpotsOfType( $key, $type );
 						//print "<pre>";  print_r($others);
 						if( $others['count'] > 0 ) {
-							echo "<br>Similar tourist spot(s) in Bangladesh:";
+							echo "<span style='color: #fff;'>Similar tourist spot(s) in Bangladesh:</span>";
 							echo "<ul class='list-group'>";
 							foreach ($others['result'] as $other) {
 								if( $other['otsp'] != $key )
@@ -79,8 +79,9 @@ if( isset( $_POST["key"] ) ) {
 							}
 							echo "</ul>";
 						}
-						//echo "<br><br>";
+						
 					}
+					echo "<hr>";
 				}
 			}
 			else { //if key is a class
@@ -98,7 +99,7 @@ if( isset( $_POST["key"] ) ) {
 					$entry = "entries";
 				}				
 				if( $members != "Not Found" ) {
-					echo 'There ' . $aux . ' ' . count( $members ) . ' ' . $entry . ' "' . $key . '".';
+					echo "<div class='alert alert-success' role='alert'>" . "There ".$aux." "."<span class='badge'>".count($members)."</span>"." tourist ".$entry." as ".$key.".</div>";
 					/*print "<pre>";
 					print_r( $members );
 					print "</pre>";*/

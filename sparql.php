@@ -19,8 +19,8 @@ function initializeStore() {
 	$GLOBALS['store'] = $st;
 }
 
-function isIndividualOrClass( $key ) {
-	initializeStore();
+function isIndividualOrClass( $key, $load ) {
+	if( $load ) initializeStore();
 	$query = $GLOBALS['prefix'] . '
 		ASK  { ?x rdfs:label "'. $key . '" . ?x a owl:NamedIndividual }
 	';

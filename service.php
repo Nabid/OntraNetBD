@@ -318,12 +318,14 @@ style.firebugResetStyles {
             </div>
           </div>
 
+          <!-- <div class="inner cover">
             <h1 class="cover-heading">New User</h1>
             <p class="lead">Register to enjoy the web service of OnTraNetBD</p>
             <p class="lead">
               <a href="serviceregister.php" class="btn btn-lg btn-primary">Register</a>              
             </p>
           </div>
+          <hr> -->
           <div class="inner cover">
             <h1 class="cover-heading">OnTraNetBD Web Service</h1>            
             <p class="lead">Send request to the link with search key and format:</p>
@@ -360,4 +362,5 @@ style.firebugResetStyles {
     <script src="assets/ie10-viewport-bug-workaround.js"></script>
   
 
-</body></html>
+</body>
+</html>

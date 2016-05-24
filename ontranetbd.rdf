@@ -2375,6 +2375,7 @@ Md. Nabid Imteaj</untitled-ontology-8:creator>
         <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Area"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Location"/>
         <hasTravelAttraction rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Dulahazara_Safari_Park"/>
+        <isPartOf rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Cox&apos;sBazar"/>
         <rdfs:label>Chakaria</rdfs:label>
     </owl:NamedIndividual>
     
@@ -10023,12 +10024,9 @@ Md. Nabid Imteaj</untitled-ontology-8:creator>
     <!-- http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Cox&apos;sBazar -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Cox&apos;sBazar">
-        <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Beach"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#District"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Land"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Location"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Natural"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#TravelAttraction"/>
+        <hasArea rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Chakaria"/>
         <hasArea rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Ukhia"/>
         <hasArea rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Cox&apos;sBazarSadar"/>
         <rdfs:label>Cox&apos;s Bazar</rdfs:label>
@@ -10041,8 +10039,22 @@ Md. Nabid Imteaj</untitled-ontology-8:creator>
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Cox&apos;sBazarSadar">
         <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Area"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Location"/>
+        <hasTravelAttraction rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Cox&apos;s_Bazar_Sea_Beach"/>
         <isPartOf rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Cox&apos;sBazar"/>
         <rdfs:label>Cox&apos;s Bazar Sadar</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Cox&apos;s_Bazar_Sea_Beach -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Cox&apos;s_Bazar_Sea_Beach">
+        <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Beach"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Land"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Natural"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#TravelAttraction"/>
+        <isLocatedAt rdf:resource="http://www.semanticweb.org/root/ontologies/2014/7/OnTraNetBD#Cox&apos;sBazarSadar"/>
+        <rdfs:label>Cox&apos;s Bazar Sea Beach</rdfs:label>
     </owl:NamedIndividual>
     
 

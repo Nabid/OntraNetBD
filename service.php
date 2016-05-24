@@ -335,6 +335,7 @@ style.firebugResetStyles {
             </p>
             <p class="lead">Sample URL:</p>
             <p class="lead"><pre>http://www.ontranetbd.org/webservice.php?key=Jaflong&amp;format=json</pre></p>
+            <div class="text-center"><a href='http://nabid.github.io/OntraNetBD/'>Download OntraNetBD</a></div>
           </div>          
 
           <div class="mastfoot">
